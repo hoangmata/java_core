@@ -14,4 +14,8 @@ public class Manager {
     public void report(Employee employee) throws Exception{
         System.out.println(employee.getName());
     }
+
+    public void report(Developer developer){
+        developer.work();
+    }
 }
