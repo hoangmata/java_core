@@ -40,8 +40,22 @@ public class Student implements Comparable<Student> {
     @Override
     public int compareTo(Student o) {
 //		return this.name.compareTo(o.getName());
-//		return Integer.valueOf(this.grade).compareTo(Integer.valueOf(o.getGrade()));
-        return Integer.valueOf(o.getGrade()).compareTo(Integer.valueOf(this.grade));
+		return Integer.valueOf(this.grade).compareTo(Integer.valueOf(o.getGrade()));
+//        return Integer.valueOf(o.getGrade()).compareTo(Integer.valueOf(this.grade));
     }
 
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Student) {
+			Student student = (Student)obj;
+			return (this.name.equals(student.getName()) && this.grade == student.getGrade());
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return this.name.hashCode() + this.grade;
+	}
+    
 }
